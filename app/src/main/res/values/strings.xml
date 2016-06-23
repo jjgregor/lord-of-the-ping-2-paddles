@@ -53,6 +53,7 @@
     <string name="confirm_match">Confirm Match</string>
     <string name="decline_btn_txt">decline</string>
     <string name="confirm_btn_txt">confirm</string>
+    <string name="inbox_empty_view">Sorry we couldn\'t load your inbox at this time.</string>
 
     <!-- Plurals -->
     <plurals name="matches">
