@@ -1,3 +1,69 @@
 <resources>
-    <string name="app_name">lord-of-the-ping-2-paddles</string>
+    <string name="app_name">Lord Of The Ping</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="leaderboard_empty_view">Sorry we couldn\'t the leaderboard at this time.</string>
+    <string name="player_profile_empty_view">Sorry we couldn\'t this profile at this time.</string>
+    <string name="your_profile_empty_view">Sorry we couldn\'t your profile at this time.</string>
+    <string name="title_activity_main">MainActivity</string>
+
+
+    <!-- New Match -->
+    <string name="new_match_opponent_lbl">Type their name or email…</string>
+    <string name="new_match_your_wins_lbl">Games You Won</string>
+    <string name="new_match_your_losses_lbl">Games You Lost</string>
+    <string name="new_match_your_opponent_lbl">Who did you play?</string>
+    <string name="new_match_submit_btn_lbl">Submit</string>
+    <string name="new_match_submitting_lbl">Submitting match…</string>
+    <string name="new_match_match_submitted_lbl">Your match has been sent to %s for confirmation!</string>
+    <string name="new_match_match_submission_failed_lbl">We\'re sorry! We weren\'t able to submit your match at this time. Please try again later!</string>
+    <string name="new_match_submission_failed_same_player">Quit playing with yourself…</string>
+    <string name="new_match_continue_btn_lbl">Continue</string>
+
+    <!-- Profile -->
+    <string name="profile_matches_lbl">Matches</string>
+    <string name="profile_games_lbl">Games</string>
+    <string name="profile_match_history_lbl">Match History</string>
+
+    <!-- Match History -->
+    <string name="match_history_date_lbl">Date</string>
+    <string name="match_history_opponent_lbl">Opponent</string>
+    <string name="match_history_result_lbl">Result</string>
+
+
+    <!-- Auth -->
+    <string name="sign_in_or_register_lbl">Sign In or Register</string>
+    <string name="sign_in_lbl">Sign In</string>
+    <string name="auth_email_lbl">Email Address</string>
+    <string name="auth_or_lbl">or</string>
+    <string name="auth_password_lbl">Password</string>
+    <string name="register_lbl">Register</string>
+    <string name="register_name_lbl">First &amp; Last Name</string>
+    <string name="auth_email_invalid">Email is invalid!</string>
+    <string name="auth_email_blank">Email cannot be blank!</string>
+    <string name="auth_password_invalid">Password cannot be blank!</string>
+    <string name="auth_name_invalid">Name cannot be blank!</string>
+    <string name="auth_signing_in_lbl">Signing in…</string>
+    <string name="auth_registering_lbl">Registering…</string>
+    <string name="sign_in_error">We were unable to sign you in. Your email address or password may be invalid.</string>
+    <string name="sign_in_successful">Sign In Successful!</string>
+    <string name="registration_error">We were unable to register you. The email address may already be in use.</string>
+    <string name="try_again_btn_lbl">Try Again</string>
+    <string name="leaderboard_losses_lbl">leaderboard losses</string>
+
+    <!-- Plurals -->
+    <plurals name="matches">
+        <item quantity="one">%d match</item>
+        <item quantity="other">%d matches</item>
+    </plurals>
+
+    <plurals name="games">
+        <item quantity="one">%d game</item>
+        <item quantity="other">%d games</item>
+    </plurals>
+
+    <plurals name="wins">
+        <item quantity="one">%d win</item>
+        <item quantity="other">%d wins</item>
+    </plurals>
 </resources>
