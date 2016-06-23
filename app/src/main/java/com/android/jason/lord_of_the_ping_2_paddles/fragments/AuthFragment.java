@@ -105,6 +105,7 @@ public class AuthFragment extends Fragment implements SignInFragment.SignInCallb
         View root = inflater.inflate(R.layout.fragment_auth, container, false);
         ButterKnife.bind(this, root);
         addListeners();
+        app = (PingPongApplication) getActivity().getApplication();
 
         return root;
     }
@@ -270,26 +271,24 @@ public class AuthFragment extends Fragment implements SignInFragment.SignInCallb
     }
 
     @Override
-    public void signInSuccessful(final Player player) {
+    public void signInSuccessful(Player player) {
         if (player != null) {
             playerSignedIn(player);
         }
     }
 
-    private void playerSignedIn(final Player player) {
+    private void playerSignedIn(Player player) {
         PingPongPreferences.setCurrentPlayer(player, getActivity());
-        if(player != null) {
-            app.setCurrentPlayer(player);
+        app.setCurrentPlayer(player);
 
-            ProfileFragment profileFragment = ProfileFragment.newInstance(player);
-            getFragmentManager()
-                    .beginTransaction()
-                    .remove(this)
-                    .add(profileFragment, "profile_fragment")
-                    .commit();
-            if (callBacks != null) {
-                callBacks.playerSignedIn(player);
-            }
+        ProfileFragment profileFragment = ProfileFragment.newInstance(player);
+        getFragmentManager()
+                .beginTransaction()
+                .remove(this)
+                .add(profileFragment, "profile_fragment")
+                .commit();
+        if (callBacks != null) {
+            callBacks.playerSignedIn(player);
         }
         if (getView() != null) {
             Snackbar.make(getView(), getString(R.string.sign_in_successful), Snackbar.LENGTH_LONG).show();
