@@ -44,19 +44,19 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
         CardView cardView;
 
         @BindView(R.id.leaderboard_pos)
-        public TextView position;
+        TextView position;
 
         @BindView(R.id.leaderboard_rating)
-        public TextView ranking;
+        TextView ranking;
 
         @BindView(R.id.leaderboard_name)
-        public TextView name;
+        TextView name;
 
         @BindView(R.id.leaderboard_wins)
-        public TextView wins;
+        TextView wins;
 
         @BindView(R.id.leaderboard_losses)
-        public TextView losses;
+        TextView losses;
 
         public ViewHolder(final View itemView) {
             super(itemView);

@@ -1,89 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/swipelist_backview"
+    <android.support.v7.widget.CardView
+        android:id="@+id/inbox_cardview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/inbox_back_view_offset">
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        app:cardUseCompatPadding="true">
 
-        <Button
-            style="@style/MyButton"
-            android:id="@+id/inbox_match_confirmation_confirm_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/confirm_btn_txt"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginRight="3dp"
-            android:layout_gravity="center_vertical"
-            />
-
-        <Button
-            style="@style/MyButton"
-            android:id="@+id/inbox_match_confirmation_decline_btn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/decline_btn_txt"
-            android:layout_marginTop="6dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginRight="6dp"
-            android:layout_gravity="center_vertical"
-            />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/swipelist_frontview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:padding="6dp">
-
-        <TextView
-            android:id="@+id/inbox_match_confirmation_name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:maxLines="1"
+        <LinearLayout
+            android:id="@+id/swipelist_backview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/confirm_match"
-            android:fontFamily="sans-serif-condensed" />
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/inbox_back_view_offset">
 
-        <TextView
-            android:id="@+id/inbox_match_confirmation_result_lbl"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:maxLines="1"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inbox_match_confirmation_name"
-            android:layout_alignStart="@id/inbox_match_confirmation_name"
-            android:layout_marginRight="4dp"
-            android:textColor="?android:textColorPrimaryInverse"
-            android:gravity="center"
-            android:fontFamily="sans-serif-condensed"
-            tools:background="@drawable/win_background"
-            tools:text="W"/>
+            <Button
+                android:id="@+id/inbox_match_confirmation_confirm_btn"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="@string/confirm_btn_txt" />
 
-        <TextView
-            android:id="@+id/inbox_match_confirmation_lbl"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:maxLines="1"
+            <Button
+                android:id="@+id/inbox_match_confirmation_decline_btn"
+                style="@style/MyButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="@string/decline_btn_txt" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/swipelist_frontview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/inbox_match_confirmation_name"
-            android:layout_toRightOf="@id/inbox_match_confirmation_result_lbl"
-            android:layout_alignBaseline="@id/inbox_match_confirmation_result_lbl"
-            android:fontFamily="sans-serif-light"
-            tools:text="against Jia T (4-1) on Fri, Dec 12"/>
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:padding="6dp">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/inbox_match_confirmation_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
+                android:text="@string/confirm_match"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <TextView
+                android:id="@+id/inbox_match_confirmation_result_lbl"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@id/inbox_match_confirmation_name"
+                android:layout_below="@id/inbox_match_confirmation_name"
+                android:layout_marginRight="4dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="?android:textColorPrimaryInverse"
+                tools:background="@drawable/win_background"
+                tools:text="W" />
+
+            <TextView
+                android:id="@+id/inbox_match_confirmation_lbl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/inbox_match_confirmation_result_lbl"
+                android:layout_below="@id/inbox_match_confirmation_name"
+                android:layout_toRightOf="@id/inbox_match_confirmation_result_lbl"
+                android:fontFamily="sans-serif-light"
+                android:maxLines="1"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                tools:text="against Jia T (4-1) on Fri, Dec 12" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
 
 </FrameLayout>

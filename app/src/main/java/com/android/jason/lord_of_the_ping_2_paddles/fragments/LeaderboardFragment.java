@@ -94,7 +94,6 @@ public class LeaderboardFragment extends Fragment {
 
 
     private void bindLeaderboard() {
-        progressBar.setVisibility(View.INVISIBLE);
         llm = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
@@ -118,10 +117,6 @@ public class LeaderboardFragment extends Fragment {
         progressBar.setVisibility(View.VISIBLE);
 
         app = (PingPongApplication) getActivity().getApplication();
-
-        llm = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(llm);
-        recyclerView.setHasFixedSize(true);
 
         refreshData();
 
