@@ -1,0 +1,239 @@
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.android.jason.lord_of_the_ping_2_paddles.viewModel.ProfileViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/player_profile_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:title="@{model.profile.player.name}"
+                android:textAlignment="center"
+                app:layout_collapseMode="pin"
+                app:title="Toolbar Title" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/profile_matches_lbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/profile_matches_lbl"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/profile_total_matches"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="28dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="?android:listDivider" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:id="@+id/profile_games_lbl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:text="@string/profile_games_lbl"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                        <TextView
+                            android:id="@+id/profile_total_games"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textAppearance="?android:textAppearanceMedium" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="16dp">
+
+                        <com.echo.holographlibrary.PieGraph
+                            android:id="@+id/profile_matches_graph"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/profile_match_win_perc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textAppearance="?android:textAppearanceLarge"
+                                android:textSize="30sp" />
+
+                            <TextView
+                                android:id="@+id/profile_match_wins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="sans-serif-light"
+                                android:textAppearance="?android:textAppearanceSmall" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="138dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="?android:listDivider" />
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:padding="16dp">
+
+                        <com.echo.holographlibrary.PieGraph
+                            android:id="@+id/profile_games_graph"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/profile_game_win_perc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="sans-serif-condensed"
+                                android:textAppearance="?android:textAppearanceLarge"
+                                android:textSize="30sp" />
+
+                            <TextView
+                                android:id="@+id/profile_game_wins"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="sans-serif-light"
+                                android:textAppearance="?android:textAppearanceSmall" />
+
+                        </LinearLayout>
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    style="?android:actionBarTabTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:gravity="center"
+                    android:text="@string/profile_match_history_lbl"
+                    android:textAppearance="?android:textAppearanceMedium" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/match_history_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/player_profile_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/player_profile_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/player_profile_empty_view"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textAlignment="center"
+            android:visibility="gone"/>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

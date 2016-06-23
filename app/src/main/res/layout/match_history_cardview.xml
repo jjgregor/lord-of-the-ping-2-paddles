@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/match_history_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:elevation="8dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="?android:listPreferredItemHeight"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/match_history_date"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@android:color/darker_gray"
+                tools:text="Dec 13"/>
+
+            <TextView
+                android:id="@+id/match_history_opponent"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:textAppearanceMedium"
+                tools:text="Jason Gregory"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right|center_vertical">
+
+                <TextView
+                    android:id="@+id/match_history_result"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/match_history_score"
+                    android:textAppearance="?android:textAppearanceMediumInverse"
+                    android:gravity="center"
+                    tools:text="W"/>
+
+                <TextView
+                    android:id="@id/match_history_score"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="@string/leaderboard_losses_lbl"
+                    tools:text="3-2"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

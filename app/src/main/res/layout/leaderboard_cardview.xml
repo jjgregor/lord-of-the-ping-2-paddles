@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/leaderboard_cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        android:clickable="true"
+        android:elevation="8dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/leaderboard_pos"
+                android:layout_width="36dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="@dimen/activity_vertical_margin"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold"
+                tools:text="1" />
+            <TextView
+                android:id="@+id/leaderboard_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:paddingRight="@dimen/activity_vertical_margin"
+                tools:text="1850" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:paddingRight="@dimen/activity_horizontal_margin">
+
+
+                <TextView
+                    android:id="@+id/leaderboard_losses"
+                    android:layout_width="32dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="0"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    tools:text="50"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true" />
+
+                <TextView
+                    android:id="@+id/leaderboard_wins"
+                    android:layout_width="45dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="10"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    tools:text="100"
+                    android:layout_alignBaseline="@+id/leaderboard_losses"
+                    android:layout_alignBottom="@+id/leaderboard_losses"
+                    android:layout_toStartOf="@+id/leaderboard_losses" />
+
+                <TextView
+                    android:id="@+id/leaderboard_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    tools:text="Jason Gregory"
+                    android:layout_alignBaseline="@+id/leaderboard_wins"
+                    android:layout_alignBottom="@+id/leaderboard_wins"
+                    android:layout_alignParentStart="true" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>
