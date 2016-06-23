@@ -118,6 +118,9 @@ public class ProfileFragment extends Fragment {
         }
         player = (Player) getArguments().getSerializable(PLAYER);
         app = (PingPongApplication) getActivity().getApplication();
+        if(player == null) {
+            player = app.getCurrentPlayer();
+        }
         name.setText(player.getName());
         String avatarUrl;
         if (StringUtils.isNotEmpty(avatarUrl = player.getAvatarUrl())) {
