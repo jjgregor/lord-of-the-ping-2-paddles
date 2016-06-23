@@ -11,6 +11,11 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.android.jason.lord_of_the_ping_2_paddles.fragments.AuthFragment;
+import com.android.jason.lord_of_the_ping_2_paddles.fragments.LeaderboardFragment;
+import com.android.jason.lord_of_the_ping_2_paddles.fragments.NewMatchFragment;
+import com.android.jason.lord_of_the_ping_2_paddles.fragments.ProfileFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        EventBus.getDefault().register(this);
 
         setSupportActionBar(toolbar);
 
@@ -58,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-//        adapter.addFragment(new LeaderboardFragment(), "Leader Board");
-//        adapter.addFragment(new NewMatchFragment(), "New Match");
-//        if (app.getCurrentPlayer() == null) {
-//            adapter.addFragment(new AuthFragment(), "Profile");
-//        } else {
-//            adapter.addFragment(ProfileFragment.newInstance(app.getCurrentPlayer()), "Profile");
-//        }
+        adapter.addFragment(new LeaderboardFragment(), "Leader Board");
+        adapter.addFragment(new NewMatchFragment(), "New Match");
+        if (app.getCurrentPlayer() == null) {
+            adapter.addFragment(new AuthFragment(), "Profile");
+        } else {
+            adapter.addFragment(ProfileFragment.newInstance(app.getCurrentPlayer()), "Profile");
+        }
         viewPager.setAdapter(adapter);
     }
 

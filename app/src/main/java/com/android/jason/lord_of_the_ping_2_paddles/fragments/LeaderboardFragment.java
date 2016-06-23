@@ -102,8 +102,8 @@ public class LeaderboardFragment extends Fragment {
 
             @Override
             public void onItemClick(Player player) {
-//                startActivity(new Intent(getActivity(), ProfileActivity.class)
-//                        .putExtra(ProfileActivity.PLAYER, player));
+                startActivity(new Intent(getActivity(), ProfileActivity.class)
+                        .putExtra(ProfileActivity.PLAYER, player));
             }
         });
         recyclerView.setAdapter(adapter);
