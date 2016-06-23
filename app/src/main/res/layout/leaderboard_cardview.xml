@@ -22,14 +22,14 @@
 
             <TextView
                 android:id="@+id/leaderboard_pos"
-                android:layout_width="36dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="@dimen/activity_vertical_margin"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/cardview_dark_background"
                 android:textStyle="bold"
-                tools:text="1" />
+                tools:text="10" />
             <TextView
                 android:id="@+id/leaderboard_rating"
                 android:layout_width="wrap_content"

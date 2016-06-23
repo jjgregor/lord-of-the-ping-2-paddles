@@ -47,5 +47,5 @@ public interface LOTPService {
     Call<List<Match>> getPendingMatches(@Path("id") long playerId);
 
     @POST("tt/confirmMatch")
-    void confirmMatch(@Body MatchConfirmResponse response, Call<Void> confirmationCallback);
+    Call<MatchConfirmResponse> confirmMatch(@Body MatchConfirmResponse response);
 }

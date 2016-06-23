@@ -50,6 +50,9 @@
     <string name="registration_error">We were unable to register you. The email address may already be in use.</string>
     <string name="try_again_btn_lbl">Try Again</string>
     <string name="leaderboard_losses_lbl">leaderboard losses</string>
+    <string name="confirm_match">Confirm Match</string>
+    <string name="decline_btn_txt">decline</string>
+    <string name="confirm_btn_txt">confirm</string>
 
     <!-- Plurals -->
     <plurals name="matches">
