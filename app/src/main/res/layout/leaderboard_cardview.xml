@@ -29,6 +29,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/cardview_dark_background"
                 android:textStyle="bold"
+                android:paddingRight="@dimen/activity_vertical_margin"
                 tools:text="10" />
             <TextView
                 android:id="@+id/leaderboard_rating"
