@@ -1,184 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/new_match_cont"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <LinearLayout
-            android:id="@+id/new_match_cont"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_marginBottom="12dp"
+            android:text="@string/new_match_your_opponent_lbl" />
 
-            <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/new_match_opponent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:text="@string/new_match_your_opponent_lbl" />
+                android:layout_centerVertical="true"
+                android:completionThreshold="1"
+                android:gravity="center"
+                android:hint="@string/new_match_opponent_lbl" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/listPreferredItemHeight"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="20dp">
+            <include
+                android:id="@+id/new_match_confirmed_opponent"
+                layout="@layout/new_match_opponent" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/new_match_opponent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:completionThreshold="1"
-                    android:gravity="center"
-                    android:hint="@string/new_match_opponent_lbl" />
+            <ImageButton
+                android:id="@+id/new_match_clear_opponent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="6dp"
+                android:src="@drawable/ic_clear_black_24dp"
+                android:background="?android:selectableItemBackground"
+                android:visibility="gone" />
 
-                <include
-                    android:id="@+id/new_match_confirmed_opponent"
-                    layout="@layout/new_match_opponent" />
+        </RelativeLayout>
 
-                <ImageButton
-                    android:id="@+id/new_match_clear_opponent"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="6dp"
-                    android:background="?android:selectableItemBackground"
-                    android:visibility="gone" />
-
-            </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/new_match_your_wins_lbl" />
-
-                    <Spinner
-                        android:id="@+id/new_match_wins"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal" />
-
-                </LinearLayout>
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/new_match_result"
-                    android:layout_width="30dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginTop="16dp"
-                    android:clickable="true"
-                    android:fontFamily="sans-serif-light"
-                    android:gravity="center"
-                    android:text="W"
-                    android:textAppearance="?android:textAppearanceLargeInverse" />
+                    android:text="@string/new_match_your_wins_lbl" />
 
-                <LinearLayout
-                    android:layout_width="0dp"
+                <Spinner
+                    android:id="@+id/new_match_wins"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/new_match_your_losses_lbl" />
-
-                    <Spinner
-                        android:id="@+id/new_match_losses"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:gravity="center_horizontal" />
-
-                </LinearLayout>
+                    android:gravity="center_horizontal" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/new_match_submit_btn"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/new_match_submit_btn_lbl"
-                android:theme="@style/MyButton" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/new_match_submitting_cont"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <ProgressBar
-                style="?android:attr/progressBarStyleLarge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/new_match_result"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
-                android:paddingTop="4dip"
-                android:singleLine="true"
-                android:text="@string/new_match_submitting_lbl"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/new_match_match_submission_result_cont"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical"
-            android:padding="20dp"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/new_match_submission_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="16dp"
+                android:clickable="true"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
-                android:paddingTop="4dip"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:text="W"
+                android:textAppearance="?android:textAppearanceLargeInverse" />
 
-            <Button
-                android:id="@+id/new_match_submission_continue_btn"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/new_match_continue_btn_lbl"
-                android:theme="@style/MyButton" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_match_your_losses_lbl" />
+
+                <Spinner
+                    android:id="@+id/new_match_losses"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </RelativeLayout>
+        <Button
+            android:id="@+id/new_match_submit_btn"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/new_match_submit_btn_lbl"
+            android:theme="@style/MyButton" />
 
-</ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/new_match_submitting_cont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dip"
+            android:singleLine="true"
+            android:text="@string/new_match_submitting_lbl"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/new_match_match_submission_result_cont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/new_match_submission_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:paddingTop="4dip"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/new_match_submission_continue_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/new_match_continue_btn_lbl"
+            android:theme="@style/MyButton" />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
