@@ -3,7 +3,6 @@ package com.android.jason.lord_of_the_ping_2_paddles.adapters;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +15,8 @@ import com.android.jason.lord_of_the_ping_2_paddles.R;
 import com.android.jason.lord_of_the_ping_2_paddles.model.Match;
 import com.android.jason.lord_of_the_ping_2_paddles.model.MatchConfirmResponse;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -98,7 +95,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
         holder.result.setText(win ? "W" : "L");
         holder.result.setBackgroundResource(win ? R.drawable.win_background : R.drawable.loss_background);
 
-        holder.confirmLbl.setText(match.getPlayerOne().getName() + " (" + match.getP1Score() + ", " + match.getP2Score() + ") " + match.getDateString());
+        holder.confirmLbl.setText(match.getPlayerOne().getName() + " (" + match.getP1Score() + ", " + match.getP2Score() + ") " + new Date(match.getDate()));
 
         holder.btnConfirm.setTag(position);
         holder.btnConfirm.setOnClickListener(new View.OnClickListener() {
