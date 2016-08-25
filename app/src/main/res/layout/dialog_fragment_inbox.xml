@@ -1,33 +1,58 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_refresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.android.jason.lord_of_the_ping_2_paddles.fragments.LeaderboardFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.android.jason.lord_of_the_ping_2_paddles.fragments.LeaderboardFragment">
 
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/inbox_recycler"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
-    <ProgressBar
-        android:id="@+id/inbox_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="visible"/>
+            <ProgressBar
+                android:id="@+id/inbox_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/inbox_empty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/inbox_empty_view"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textAlignment="center"
-        android:visibility="gone"/>
+            <TextView
+                android:id="@+id/inbox_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/inbox_empty_view"
+                android:textAlignment="center"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.6" />
 
-</FrameLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/inbox_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/inbox_cardview"
+                tools:visibility="visible" />
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+</android.support.v4.widget.SwipeRefreshLayout>

@@ -2,6 +2,7 @@ package com.android.jason.lord_of_the_ping_2_paddles.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -43,10 +44,11 @@ public class InboxFragment extends DialogFragment {
 
     @BindView(R.id.inbox_recycler)
     RecyclerView recyclerView;
+    @BindView(R.id.swipe_refresh)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     public static final String TAG = InboxFragment.class.getName();
 
-    private LinearLayoutManager llm;
     private ArrayList<Match> matches;
     private PingPongApplication app;
     private InboxAdapter adapter;
@@ -74,6 +76,13 @@ public class InboxFragment extends DialogFragment {
             empty.setText(R.string.please_sign_in);
         }
 
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshData();
+            }
+        });
+
         return root;
     }
 
@@ -85,7 +94,7 @@ public class InboxFragment extends DialogFragment {
             public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
                 if (response.isSuccessful() && !response.body().isEmpty()) {
                     Log.d(TAG, "Recieved pending matches: " + response.body());
-                    matches = new ArrayList<Match>(response.body());
+                    matches = new ArrayList<>(response.body());
                     progressBar.setVisibility(View.INVISIBLE);
                     recyclerView.setVisibility(View.VISIBLE);
                     bindInbox();
@@ -94,18 +103,20 @@ public class InboxFragment extends DialogFragment {
                     progressBar.setVisibility(View.INVISIBLE);
                     empty.setVisibility(View.VISIBLE);
                 }
+                swipeRefreshLayout.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<List<Match>> call, Throwable t) {
                 progressBar.setVisibility(View.INVISIBLE);
                 empty.setVisibility(View.VISIBLE);
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
     }
 
     public void bindInbox() {
-        llm = new LinearLayoutManager(getContext());
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
         adapter = new InboxAdapter(matches, app);

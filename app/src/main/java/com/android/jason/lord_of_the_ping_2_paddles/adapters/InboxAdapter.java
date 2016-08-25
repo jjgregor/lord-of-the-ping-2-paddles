@@ -18,6 +18,7 @@ import com.android.jason.lord_of_the_ping_2_paddles.model.MatchConfirmResponse;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -33,11 +34,11 @@ import retrofit2.Response;
 
 public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> {
 
-    private final List<Match> data;
+    private final ArrayList<Match> data;
     private final PingPongApplication app;
     private static final String TAG = InboxAdapter.class.getName();
 
-    public InboxAdapter(List<Match> matches , PingPongApplication application) {
+    public InboxAdapter(ArrayList<Match> matches, PingPongApplication application) {
         this.data = matches;
         this.app = application;
     }
@@ -78,14 +79,14 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
 
     @Override
     public InboxAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.inbox_cardview, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.inbox_cardview, null);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(InboxAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(InboxAdapter.ViewHolder holder, int position) {
 
-        if(data == null){
+        if (data == null) {
             return;
         }
 
@@ -99,7 +100,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
 
         holder.confirmLbl.setText(match.getPlayerOne().getName() + " (" + match.getP1Score() + ", " + match.getP2Score() + ") " + match.getDateString());
 
-        holder.btnConfirm.setOnClickListener(new View.OnClickListener(){
+        holder.btnConfirm.setTag(position);
+        holder.btnConfirm.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View view) {
@@ -110,6 +112,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
                     public void onResponse(Call<MatchConfirmResponse> call, Response<MatchConfirmResponse> response) {
                         //refresh inbox
                         Snackbar.make(view, "Match confirmed!", Snackbar.LENGTH_LONG).show();
+                        data.remove((int) view.getTag());
+                        notifyDataSetChanged();
                     }
 
                     @Override
@@ -120,7 +124,8 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
             }
         });
 
-        holder.btnDecline.setOnClickListener(new View.OnClickListener(){
+        holder.btnDecline.setTag(position);
+        holder.btnDecline.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View view) {
@@ -131,12 +136,14 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
                     public void onResponse(Call<MatchConfirmResponse> call, Response<MatchConfirmResponse> response) {
                         //refresh inbox
                         Snackbar.make(view, "Match declined!", Snackbar.LENGTH_LONG).show();
+                        data.remove((int) view.getTag());
+                        notifyDataSetChanged();
                     }
 
                     @Override
                     public void onFailure(Call<MatchConfirmResponse> call, Throwable t) {
                         Log.d(TAG, t.getMessage());
-                        Snackbar.make(view, "Sorry that didn't work :(" , Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(view, "Sorry that didn't work :(", Snackbar.LENGTH_LONG).show();
                     }
                 });
             }
@@ -145,7 +152,7 @@ public class InboxAdapter extends RecyclerView.Adapter<InboxAdapter.ViewHolder> 
     }
 
     @Override
-    public int getItemCount()  {
+    public int getItemCount() {
         return data == null ? 0 : data.size();
     }
 }
