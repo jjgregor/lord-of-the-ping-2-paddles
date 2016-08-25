@@ -68,7 +68,7 @@
 
                 <Spinner
                     android:id="@+id/new_match_wins"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal" />
@@ -103,7 +103,7 @@
 
                 <Spinner
                     android:id="@+id/new_match_losses"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal" />
