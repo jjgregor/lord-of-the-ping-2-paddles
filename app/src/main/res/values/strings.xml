@@ -54,6 +54,7 @@
     <string name="decline_btn_txt">decline</string>
     <string name="confirm_btn_txt">confirm</string>
     <string name="inbox_empty_view">Sorry we couldn\'t load your inbox at this time.</string>
+    <string name="please_sign_in">Please sign in to view your inbox.</string>
 
     <!-- Plurals -->
     <plurals name="matches">

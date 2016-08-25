@@ -13,40 +13,6 @@
         android:elevation="8dp"
         app:cardUseCompatPadding="true">
 
-        <LinearLayout
-            android:id="@+id/swipelist_backview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="@dimen/inbox_back_view_offset">
-
-            <Button
-                android:id="@+id/inbox_match_confirmation_confirm_btn"
-                style="@style/MyButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="6dp"
-                android:layout_marginRight="3dp"
-                android:layout_marginTop="6dp"
-                android:layout_weight="1"
-                android:text="@string/confirm_btn_txt" />
-
-            <Button
-                android:id="@+id/inbox_match_confirmation_decline_btn"
-                style="@style/MyButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginBottom="6dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginRight="6dp"
-                android:layout_marginTop="6dp"
-                android:layout_weight="1"
-                android:text="@string/decline_btn_txt" />
-
-        </LinearLayout>
-
         <RelativeLayout
             android:id="@+id/swipelist_frontview"
             android:layout_width="match_parent"
@@ -65,7 +31,7 @@
 
             <TextView
                 android:id="@+id/inbox_match_confirmation_result_lbl"
-                android:layout_width="20dp"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@id/inbox_match_confirmation_name"
                 android:layout_below="@id/inbox_match_confirmation_name"
@@ -84,11 +50,41 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/inbox_match_confirmation_result_lbl"
                 android:layout_below="@id/inbox_match_confirmation_name"
-                android:layout_toRightOf="@id/inbox_match_confirmation_result_lbl"
                 android:fontFamily="sans-serif-light"
                 android:maxLines="1"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                tools:text="against Jia T (4-1) on Fri, Dec 12" />
+                tools:text="against Jia T (4-1) on Fri, Dec 12"
+                android:layout_toEndOf="@+id/inbox_match_confirmation_result_lbl" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/inbox_match_confirmation_lbl"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true">
+
+                <Button
+                    android:id="@+id/inbox_match_confirmation_confirm_btn"
+                    android:theme="@style/MyButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/confirm_btn_txt"
+                    android:visibility="visible" />
+
+                <Button
+                    android:id="@+id/inbox_match_confirmation_decline_btn"
+                    android:theme="@style/MyButton"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/decline_btn_txt"
+                    android:visibility="visible"
+                    android:layout_marginStart="56dp" />
+            </LinearLayout>
+
 
         </RelativeLayout>
 

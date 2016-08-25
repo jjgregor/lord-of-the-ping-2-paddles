@@ -88,9 +88,6 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
 
         final Match match = data.get(position);
 
-        Log.d(TAG, "Match Date: " + match.getDate());
-        Log.d(TAG, " player 2: " + match.getPlayerTwo().getName());
-
         if (!TextUtils.isEmpty(String.valueOf(match.getDate()))) {
             holder.date.setText(match.getDateString());
             holder.date.setText(DATE_FORMAT.format(new Date(match.getDate())));
