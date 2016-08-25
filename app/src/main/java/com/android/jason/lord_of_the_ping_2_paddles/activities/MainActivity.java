@@ -1,6 +1,5 @@
 package com.android.jason.lord_of_the_ping_2_paddles;
 
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.android.jason.lord_of_the_ping_2_paddles.fragments.AuthFragment;
+import com.android.jason.lord_of_the_ping_2_paddles.fragments.InboxDialogFragment;
 import com.android.jason.lord_of_the_ping_2_paddles.fragments.LeaderboardFragment;
 import com.android.jason.lord_of_the_ping_2_paddles.fragments.NewMatchFragment;
 import com.android.jason.lord_of_the_ping_2_paddles.fragments.ProfileFragment;
@@ -56,14 +56,15 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.fab)
     public void onFabClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        FragmentManager fm = getSupportFragmentManager();
+        NewMatchFragment idf = new NewMatchFragment();
+        idf.show(fm, "fragment_new_match");
     }
 
     private void setUpViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new LeaderboardFragment(), "Leader Board");
-        adapter.addFragment(new NewMatchFragment(), "New Match");
+//        adapter.addFragment(new NewMatchFragment(), "New Match");
         if (app.getCurrentPlayer() == null) {
             adapter.addFragment(new AuthFragment(), "Profile");
         } else {

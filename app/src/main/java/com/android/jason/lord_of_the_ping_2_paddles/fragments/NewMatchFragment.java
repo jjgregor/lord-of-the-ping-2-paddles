@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,7 +43,7 @@ import retrofit2.Response;
  * Created by gregjas on 6/22/16.
  */
 
-public class NewMatchFragment extends Fragment  implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener, SaveMatchFragment.SaveMatchCallbacks, AuthFragment.AuthCallbacks  {
+public class NewMatchFragment extends DialogFragment implements AdapterView.OnItemClickListener, AdapterView.OnItemSelectedListener, SaveMatchFragment.SaveMatchCallbacks, AuthFragment.AuthCallbacks  {
     private static final String TAG = NewMatchFragment.class.getName();
     private static final String STATE_OPPONENT = "opponent";
     private static final String STATE_OPPONENTS = "opponents";
